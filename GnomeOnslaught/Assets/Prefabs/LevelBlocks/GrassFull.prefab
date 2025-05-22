@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3966081080975300349}
   - component: {fileID: 1563425110853026589}
   m_Layer: 0
-  m_Name: LevelBackGroundTile
+  m_Name: GrassFull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
