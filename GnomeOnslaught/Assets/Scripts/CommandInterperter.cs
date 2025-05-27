@@ -2,24 +2,29 @@ using UnityEngine;
 
 public class CommandInterperter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private UnitBehavior unitBehavior;
+    private Vector2 movementDirection;
+
     void Start()
     {
-
+        unitBehavior = GetComponent<UnitBehavior>();
     }
-
-    // Update is called once per frame
     void Update()
     {
 
+        unitBehavior.movementDirection = movementDirection;
     }
 
-    void followTarget()
+    void followTarget(GameObject targetToFollow)
     {
 
     }
 
     void GoToDirection()
+    {
+
+    }
+    void SeekEnemy()
     {
 
     }
