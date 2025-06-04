@@ -61,6 +61,7 @@ public class KeyboardControls : IControls
     }
     public bool ReturnPressed()
     {
+        Debug.Log("return was pressed");
         return Input.GetKeyDown(KeyCode.Q);
     }
 }

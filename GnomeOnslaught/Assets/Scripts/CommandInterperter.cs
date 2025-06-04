@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class CommandInterperter : MonoBehaviour
 {
@@ -32,23 +31,30 @@ public class CommandInterperter : MonoBehaviour
 
         GetComponent<Rigidbody2D>().AddForce(movementDirection);
     }
-    void AttackTarget(GameObject targetToFollow)
+    public void SetUnitBehavior(UnitBehaviorType _newUnitBehavior)
+    {
+        currentUnitBehavior = _newUnitBehavior;
+        UnitBehavior unitBehavior = GetComponent<UnitBehavior>();
+        unitBehavior.target = gameObject;
+    }
+
+    private void AttackTarget(GameObject targetToFollow)
     {
         Vector2 direction = (targetToFollow.transform.position - transform.position).normalized;
         Debug.DrawLine(transform.position, targetToFollow.transform.position, Color.red);
-        Debug.Log("Direction: " + direction);
+        //Debug.Log("Direction: " + direction);
     }
 
-    void GoToDirection()
+    private void GoToDirection()
     {
 
     }
 
-    void FollowTarget(GameObject targetToFollow)
+    private void FollowTarget(GameObject targetToFollow)
     {
+        Debug.Log("following target");
         Vector2 toTarget = targetToFollow.transform.position - transform.position;
         float currentDistance = toTarget.magnitude;
-        // Only move if we're farther than the desired distance
         if (currentDistance > 1)
         {
             Vector2 direction = toTarget.normalized;
