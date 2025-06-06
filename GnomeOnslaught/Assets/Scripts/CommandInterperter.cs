@@ -18,14 +18,18 @@ public class CommandInterperter : MonoBehaviour
         {
             case UnitBehaviorType.idle:
                 movementDirection = Vector2.zero;
+                //Debug.Log("idling");
                 break;
             case UnitBehaviorType.attacking:
                 AttackTarget(unitBehavior.target);
+                //Debug.Log("attacking");
                 break;
             case UnitBehaviorType.following:
                 FollowTarget(unitBehavior.target);
+                //Debug.Log("following");
                 break;
             default:
+                //Debug.Log("no behavior executed");
                 break;
         }
 
@@ -33,6 +37,7 @@ public class CommandInterperter : MonoBehaviour
     }
     public void SetUnitBehavior(UnitBehaviorType _newUnitBehavior)
     {
+        //Debug.Log("New unit behavior set");
         currentUnitBehavior = _newUnitBehavior;
         UnitBehavior unitBehavior = GetComponent<UnitBehavior>();
         unitBehavior.target = gameObject;
@@ -52,11 +57,13 @@ public class CommandInterperter : MonoBehaviour
 
     private void FollowTarget(GameObject targetToFollow)
     {
-        Debug.Log("following target");
+        //Debug.Log("following target");
         Vector2 toTarget = targetToFollow.transform.position - transform.position;
         float currentDistance = toTarget.magnitude;
-        if (currentDistance > 1)
+        Debug.Log("current distcance : " + currentDistance);
+        if (currentDistance >= 1)
         {
+            //Debug.Log("Moving to target");
             Vector2 direction = toTarget.normalized;
             rigidbody2D.AddForce(direction);
         }

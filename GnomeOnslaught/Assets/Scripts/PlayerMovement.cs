@@ -18,12 +18,12 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementDir = controls.GetMovement();
         Vector2 aim = controls.GetAim();
 
-        if (controls.SelectPressed())
+        //if (controls.SelectPressed())
         {
             Debug.Log("Select pressed");
         }
 
-        if (controls.ReturnPressed())
+        //if (controls.ReturnPressed())
         {
             Debug.Log("Return pressed");
         }

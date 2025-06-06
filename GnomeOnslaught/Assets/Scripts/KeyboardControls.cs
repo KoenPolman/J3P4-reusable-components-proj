@@ -10,7 +10,7 @@ public class KeyboardControls : IControls
     }
     public Vector2 GetMovement()
     {
-        Debug.Log("check input");
+        //Debug.Log("check input");
         Vector2 movementDirection = Vector2.zero;
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
         {
@@ -19,12 +19,12 @@ public class KeyboardControls : IControls
         else if (Input.GetKey(KeyCode.W))
         {
             movementDirection.y = 1;
-            Debug.Log("forward");
+            //Debug.Log("forward");
         }
         else if (Input.GetKey(KeyCode.S))
         {
             movementDirection.y = -1;
-            Debug.Log("backward");
+            //Debug.Log("backward");
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
@@ -34,12 +34,12 @@ public class KeyboardControls : IControls
         else if (Input.GetKey(KeyCode.A))
         {
             movementDirection.x = -1;
-            Debug.Log("left");
+            //Debug.Log("left");
         }
         else if (Input.GetKey(KeyCode.D))
         {
             movementDirection.x = 1;
-            Debug.Log("right");
+            //Debug.Log("right");
         }
         movementDirection.Normalize();
         return movementDirection;
@@ -61,7 +61,10 @@ public class KeyboardControls : IControls
     }
     public bool ReturnPressed()
     {
-        Debug.Log("return was pressed");
+        //if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("return was pressed");
+        }
         return Input.GetKeyDown(KeyCode.Q);
     }
 }

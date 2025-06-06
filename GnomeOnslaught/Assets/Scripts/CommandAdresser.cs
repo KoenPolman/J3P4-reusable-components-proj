@@ -19,23 +19,26 @@ public class CommandAdresser : MonoBehaviour
     {
         if (controls.ReturnPressed())
         {
-            Debug.Log("rallying units");
+            //Debug.Log("rallying units");
             Rally();
         }
     }
     public void Rally()
     {
-        CommandInterperter[] targets = FindObjectsByType<CommandInterperter>(FindObjectsSortMode.None);
-        for(int i = 0; i < targets.Length; i++) 
+        CommandInterperter[] targets = FindObjectsByType<CommandInterperter>(FindObjectsSortMode.None); //doelwitten worden gevonden
+        //Debug.Log("qty CommandInterperter found : " + targets.Length); //
+        for (int i = 0; i < targets.Length; i++)
         {
             float distance = Vector3.Distance(targets[i].transform.position, transform.position);
-            if (distance >= commandRange)
+            if (distance <= commandRange && !currentWarBand.Contains(targets[i]))
             {
                 currentWarBand.Add(targets[i]);
             }
         }
+        Debug.Log("Curren warband size : " + currentWarBand.Count);
         foreach (CommandInterperter unit in currentWarBand)
         {
+            //Debug.Log("unitbehavior set");
             unit.SetUnitBehavior(UnitBehaviorType.following);
         }
     }
