@@ -63,7 +63,7 @@ public class KeyboardControls : IControls
     {
         //if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("return was pressed");
+            //Debug.Log("return was pressed");
         }
         return Input.GetKeyDown(KeyCode.Q);
     }

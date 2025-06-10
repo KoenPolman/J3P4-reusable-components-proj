@@ -1,13 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartGameButton : MonoBehaviour
 {
-    void Start()
+    public void OnClick()
     {
-        
-    }
-    void Update()
-    {
-        
+        SceneManager.LoadScene(1);
     }
 }

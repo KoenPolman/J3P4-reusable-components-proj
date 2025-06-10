@@ -39,7 +39,7 @@ public class CommandAdresser : MonoBehaviour
         foreach (CommandInterperter unit in currentWarBand)
         {
             //Debug.Log("unitbehavior set");
-            unit.SetUnitBehavior(UnitBehaviorType.following);
+            unit.SetUnitBehavior(UnitBehaviorType.following, gameObject);
         }
     }
     public void Attack()

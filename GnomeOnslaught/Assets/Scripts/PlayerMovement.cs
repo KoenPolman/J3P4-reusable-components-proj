@@ -20,12 +20,12 @@ public class PlayerMovement : MonoBehaviour
 
         //if (controls.SelectPressed())
         {
-            Debug.Log("Select pressed");
+            //Debug.Log("Select pressed");
         }
 
         //if (controls.ReturnPressed())
         {
-            Debug.Log("Return pressed");
+            //Debug.Log("Return pressed");
         }
 
         Vector2 movement = movementDir * movementSpeed;

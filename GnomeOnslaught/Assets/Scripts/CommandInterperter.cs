@@ -35,18 +35,18 @@ public class CommandInterperter : MonoBehaviour
 
         GetComponent<Rigidbody2D>().AddForce(movementDirection);
     }
-    public void SetUnitBehavior(UnitBehaviorType _newUnitBehavior)
+    public void SetUnitBehavior(UnitBehaviorType _newUnitBehavior, GameObject _newTarget)
     {
         //Debug.Log("New unit behavior set");
         currentUnitBehavior = _newUnitBehavior;
         UnitBehavior unitBehavior = GetComponent<UnitBehavior>();
-        unitBehavior.target = gameObject;
+        unitBehavior.target = _newTarget;
     }
 
     private void AttackTarget(GameObject targetToFollow)
     {
         Vector2 direction = (targetToFollow.transform.position - transform.position).normalized;
-        Debug.DrawLine(transform.position, targetToFollow.transform.position, Color.red);
+        //Debug.DrawLine(transform.position, targetToFollow.transform.position, Color.red);
         //Debug.Log("Direction: " + direction);
     }
 
@@ -60,11 +60,18 @@ public class CommandInterperter : MonoBehaviour
         //Debug.Log("following target");
         Vector2 toTarget = targetToFollow.transform.position - transform.position;
         float currentDistance = toTarget.magnitude;
-        Debug.Log("current distcance : " + currentDistance);
-        if (currentDistance >= 1)
+        Vector2 direction = toTarget.normalized;
+        //Debug.Log("current distance : " + currentDistance);
+        if (currentDistance >= 1.5f)
         {
             //Debug.Log("Moving to target");
-            Vector2 direction = toTarget.normalized;
+            //Debug.Log(toTarget);
+            //Debug.Log(direction);
+            rigidbody2D.AddForce(direction);
+        }
+        else if (currentDistance < 1.5f)
+        {
+            direction =- direction * 2;
             rigidbody2D.AddForce(direction);
         }
     }
