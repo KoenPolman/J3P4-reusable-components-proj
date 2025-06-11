@@ -6,8 +6,6 @@ public class UnitBehavior : MonoBehaviour
 {
     [SerializeField] float movementSpeed;
     [SerializeField] FactionTypes faction;
-    public GameObject target
-    { get; set; }
 
     void Start()
     {

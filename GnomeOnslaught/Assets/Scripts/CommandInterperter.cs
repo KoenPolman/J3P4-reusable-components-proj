@@ -2,77 +2,42 @@ using UnityEngine;
 
 public class CommandInterperter : MonoBehaviour
 {
-    private UnitBehavior unitBehavior;
-    private Rigidbody2D rigidbody2D;
-    private Vector2 movementDirection;
-    private UnitBehaviorType currentUnitBehavior = UnitBehaviorType.idle;
-
-    void Start()
+    private MonoBehaviour currentBehavior;
+    private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        unitBehavior = GetComponent<UnitBehavior>();
+        SetBehavior<Idle>();
     }
-    void Update()
+
+    public void SetBehavior<T>() where T : MonoBehaviour
     {
-        switch (currentUnitBehavior)
+        // If the current behavior is already of this type, do nothing
+        if (currentBehavior != null && currentBehavior.GetType() == typeof(T))
         {
-            case UnitBehaviorType.idle:
-                movementDirection = Vector2.zero;
-                //Debug.Log("idling");
-                break;
-            case UnitBehaviorType.attacking:
-                AttackTarget(unitBehavior.target);
-                //Debug.Log("attacking");
-                break;
-            case UnitBehaviorType.following:
-                FollowTarget(unitBehavior.target);
-                //Debug.Log("following");
-                break;
-            default:
-                //Debug.Log("no behavior executed");
-                break;
+            return;
         }
 
-        GetComponent<Rigidbody2D>().AddForce(movementDirection);
-    }
-    public void SetUnitBehavior(UnitBehaviorType _newUnitBehavior, GameObject _newTarget)
-    {
-        //Debug.Log("New unit behavior set");
-        currentUnitBehavior = _newUnitBehavior;
-        UnitBehavior unitBehavior = GetComponent<UnitBehavior>();
-        unitBehavior.target = _newTarget;
-    }
-
-    private void AttackTarget(GameObject targetToFollow)
-    {
-        Vector2 direction = (targetToFollow.transform.position - transform.position).normalized;
-        //Debug.DrawLine(transform.position, targetToFollow.transform.position, Color.red);
-        //Debug.Log("Direction: " + direction);
-    }
-
-    private void GoToDirection()
-    {
-
-    }
-
-    private void FollowTarget(GameObject targetToFollow)
-    {
-        //Debug.Log("following target");
-        Vector2 toTarget = targetToFollow.transform.position - transform.position;
-        float currentDistance = toTarget.magnitude;
-        Vector2 direction = toTarget.normalized;
-        //Debug.Log("current distance : " + currentDistance);
-        if (currentDistance >= 1.5f)
+        // Remove the previous behavior
+        if (currentBehavior != null)
         {
-            //Debug.Log("Moving to target");
-            //Debug.Log(toTarget);
-            //Debug.Log(direction);
-            rigidbody2D.AddForce(direction);
+            Destroy(currentBehavior);
         }
-        else if (currentDistance < 1.5f)
+
+        currentBehavior = gameObject.AddComponent<T>();
+    }
+    public void ClearBehavior()
+    {
+        if (currentBehavior != null)
         {
-            direction =- direction * 2;
-            rigidbody2D.AddForce(direction);
+            Destroy(currentBehavior);
+            currentBehavior = null;
         }
+    }
+    public System.Type GetCurrentBehaviorType()
+    {
+        return currentBehavior?.GetType();
+    }
+    public bool IsCurrentBehavior<T>() where T : MonoBehaviour
+    {
+        return currentBehavior != null && currentBehavior is T;
     }
 }

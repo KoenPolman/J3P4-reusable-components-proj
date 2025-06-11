@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -6661500782623607874}
   - component: {fileID: 6720905794172537562}
   - component: {fileID: 1696114121776450933}
-  - component: {fileID: 182518362570352089}
   - component: {fileID: 2520742926607841505}
+  - component: {fileID: 7340594688783271083}
   m_Layer: 0
   m_Name: UnitBase
   m_TagString: Untagged
@@ -116,20 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0d99b91c91f01488ca926e3f741183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &182518362570352089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7864733423098742570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b450fb7a08bbf947818157ecd34efdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 0
-  faction: 0
 --- !u!50 &2520742926607841505
 Rigidbody2D:
   serializedVersion: 5
@@ -157,3 +143,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7340594688783271083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864733423098742570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a391987ec7344dd47b69ef72722c0800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
