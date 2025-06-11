@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class Alleigiance : MonoBehaviour
 {
-    FactionTypes faction = FactionTypes.Neutral;
+    public FactionTypes Faction { get; set; } = FactionTypes.Neutral;
 }

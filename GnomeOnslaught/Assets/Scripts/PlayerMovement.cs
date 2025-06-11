@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector2 movementDir = controls.GetMovement();
         Vector2 aim = controls.GetAim();

@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class SeekEnemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Alleigiance alleigiance;
+    private CommandInterperter commandInterperter;
+
     void Start()
     {
-        
+        alleigiance = gameObject.GetComponent<Alleigiance>();
+        commandInterperter = gameObject.GetComponent<CommandInterperter>();
     }
 
     // Update is called once per frame

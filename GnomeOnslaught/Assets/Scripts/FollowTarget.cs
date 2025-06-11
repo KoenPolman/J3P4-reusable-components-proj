@@ -12,8 +12,7 @@ public class FollowTarget : MonoBehaviour
         target = t.gameObject.transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Debug.Log("following target");
         Vector2 toTarget = target.transform.position - transform.position;
