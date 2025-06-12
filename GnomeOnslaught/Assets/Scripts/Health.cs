@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector3 damageOrgin)
     {
         healthPoints -= damage;
     }

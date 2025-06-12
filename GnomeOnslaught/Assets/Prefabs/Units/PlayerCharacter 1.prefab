@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5725943965796891030}
   - component: {fileID: 9090669941746136090}
   - component: {fileID: 7288400356362919968}
+  - component: {fileID: 7990384023748204363}
+  - component: {fileID: 2986147274878695243}
   m_Layer: 0
   m_Name: PlayerCharacter 1
   m_TagString: Untagged
@@ -104,7 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56450e71a79607a4a80b269a5d24ce57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
 --- !u!50 &8093920405456363658
 Rigidbody2D:
   serializedVersion: 5
@@ -193,3 +194,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c150d1775c68a2749a4f6d89fc904400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandRange: 5
+--- !u!114 &7990384023748204363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678591974905851841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c111f4aa2e533c429061d7814f24c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+--- !u!114 &2986147274878695243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678591974905851841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88a28061dd41c54cbf5a8a6e0dc8647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 0

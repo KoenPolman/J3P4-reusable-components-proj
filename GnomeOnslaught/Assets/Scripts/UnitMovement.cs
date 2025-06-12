@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class UnitMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] float movementSpeed;
+    private Rigidbody2D rigidbody2D;
     void Start()
     {
-        
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void MoveInDirection(Vector3 direction)
     {
-        
+        rigidbody2D.AddForce(direction * movementSpeed);
     }
 }

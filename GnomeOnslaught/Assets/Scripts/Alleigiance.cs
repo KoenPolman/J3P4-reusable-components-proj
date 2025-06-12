@@ -2,5 +2,10 @@ using UnityEngine;
 
 public class Alleigiance : MonoBehaviour
 {
-    public FactionTypes Faction { get; set; } = FactionTypes.Neutral;
+    [SerializeField] FactionTypes faction;
+
+    public FactionTypes Faction
+    {
+        get { return faction; }
+    }
 }

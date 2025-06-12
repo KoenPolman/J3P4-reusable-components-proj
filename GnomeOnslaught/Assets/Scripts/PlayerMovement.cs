@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 10;
     private IControls controls;
-    private Rigidbody2D rigidbody2D;
+    private UnitMovement unitMovement;
 
     void Start()
     {
         controls = new KeyboardControls(gameObject);
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        unitMovement = GetComponent<UnitMovement>();
     }
 
     void FixedUpdate()
@@ -28,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Return pressed");
         }
 
-        Vector2 movement = movementDir * movementSpeed;
-        rigidbody2D.AddForce(movement);
+        unitMovement.MoveInDirection(movementDir);
     }
 }
