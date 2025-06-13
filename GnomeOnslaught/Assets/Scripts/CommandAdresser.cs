@@ -30,7 +30,7 @@ public class CommandAdresser : MonoBehaviour
         for (int i = 0; i < targets.Length; i++)
         {
             float distance = Vector3.Distance(targets[i].transform.position, transform.position);
-            if (distance <= commandRange && !currentWarBand.Contains(targets[i]))
+            if (distance <= commandRange && !currentWarBand.Contains(targets[i]) && targets[i].GetComponent<Alleigiance>().Faction == FactionTypes.Player)
             {
                 currentWarBand.Add(targets[i]);
             }

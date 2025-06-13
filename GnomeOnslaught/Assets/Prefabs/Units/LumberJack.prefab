@@ -76,8 +76,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: LumberJack
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1696114121776450933, guid: 4c320c2205a393046b5e13769f3e5f66, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

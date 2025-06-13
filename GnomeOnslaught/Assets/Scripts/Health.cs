@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float damage, Vector3 damageOrgin)
     {
+        Debug.Log("health = " + 0);
         healthPoints -= damage;
     }
 }
