@@ -22,10 +22,10 @@ public class SeekEnemy : MonoBehaviour
             float distance = Vector3.Distance(allUnits[i].gameObject.transform.position, gameObject.transform.position);
             if (isEnemy(allUnits[i]) && distance <= 5f) //look for an unit within a certain distance and check if they are on the list of targeted factions
             {
-                Debug.Log("Enemy found!");
+                //Debug.Log("Enemy found!");
                 commandInterperter.SetBehavior<AttackTarget>(); //switch out the current behavior for the attacking behavior
                 gameObject.GetComponent<AttackTarget>().Target = allUnits[i].gameObject.transform;//set the target int the attacking behavior
-                Debug.Log("target set!");
+                //Debug.Log("target set!");
             }
         }
     }

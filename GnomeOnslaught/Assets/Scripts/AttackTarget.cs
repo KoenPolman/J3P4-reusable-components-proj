@@ -14,10 +14,20 @@ public class AttackTarget : MonoBehaviour
         CommandAdresser t = GameObject.FindFirstObjectByType<CommandAdresser>();
         target = t.gameObject.transform;
         healthOfTarget = t.GetComponentInParent<Health>();
-        circleCollider.GetComponent<CircleCollider2D>();
-        circleColliderOfTarget = t.GetComponent<CircleCollider2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
+        circleColliderOfTarget = t.gameObject.GetComponent<CircleCollider2D>();
         SeekEnemy seekEnemy = gameObject.AddComponent<SeekEnemy>();
         seekEnemy.enabled = false;
+
+        if (circleCollider == null)
+        {
+            Debug.Log("unit collider is null");
+        }
+
+        if (circleColliderOfTarget == null)
+        {
+            Debug.Log("target collider is null");
+        }
     }
     void FixedUpdate()
     {
