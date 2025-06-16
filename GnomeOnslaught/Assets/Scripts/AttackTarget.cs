@@ -3,6 +3,7 @@ using UnityEngine;
 public class AttackTarget : MonoBehaviour
 {
     [SerializeField] float damageAmount = 3;
+    private CommandInterperter commandInterperter;
     private UnitMovement unitMovement;
     private Transform target;
     private Health healthOfTarget;
@@ -10,6 +11,7 @@ public class AttackTarget : MonoBehaviour
     private CircleCollider2D circleColliderOfTarget;
     private void Start()
     {
+        commandInterperter = GetComponent<CommandInterperter>();
         unitMovement = GetComponent<UnitMovement>();
         CommandAdresser t = GameObject.FindFirstObjectByType<CommandAdresser>();
         target = t.gameObject.transform;
@@ -31,14 +33,24 @@ public class AttackTarget : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector2 toTarget = target.transform.position - transform.position;
-        float currentDistance = toTarget.magnitude; //calculate the direction to the target
-        Vector2 direction = toTarget.normalized;
-        unitMovement.MoveInDirection(direction); //go to the enemy
-        if (circleCollider.IsTouching(circleColliderOfTarget)) //if is touching do damage
+        if (circleColliderOfTarget == null)
         {
-            healthOfTarget.TakeDamage(damageAmount, gameObject.transform.position);
+            Debug.Log("target does not exist anymore");
+            commandInterperter.SetBehavior<Idle>();
+            GetComponent<SeekEnemy>().enabled = true;
         }
+        else
+        {
+            Debug.Log("running attack behavior");
+            Vector2 toTarget = target.transform.position - transform.position;
+            float currentDistance = toTarget.magnitude; //calculate the direction to the target
+            Vector2 direction = toTarget.normalized;
+            unitMovement.MoveInDirection(direction); //go to the enemy
+            if (circleCollider.IsTouching(circleColliderOfTarget)) //if is touching do damage
+            {
+                healthOfTarget.TakeDamage(damageAmount, gameObject.transform.position);
+            }
+        }   
     }
     public Transform Target
     {
