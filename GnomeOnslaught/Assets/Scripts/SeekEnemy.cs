@@ -24,7 +24,7 @@ public class SeekEnemy : MonoBehaviour
             {
                 //Debug.Log("Enemy found!");
                 commandInterperter.SetBehavior<AttackTarget>(); //switch out the current behavior for the attacking behavior
-                gameObject.GetComponent<AttackTarget>().Target = allUnits[i].gameObject.transform;//set the target int the attacking behavior
+                gameObject.GetComponent<AttackTarget>().Target = allUnits[i].gameObject;//set the target int the attacking behavior
                 //Debug.Log("target set!");
             }
         }

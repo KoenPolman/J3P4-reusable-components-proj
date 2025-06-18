@@ -17,6 +17,7 @@ public class CommandAdresser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForDeaths();
         if (controls.ReturnPressed())
         {
             //Debug.Log("rallying units");
@@ -45,5 +46,15 @@ public class CommandAdresser : MonoBehaviour
     public void Attack()
     {
 
+    }
+    private void CheckForDeaths()
+    {
+        foreach(CommandInterperter unit in currentWarBand) 
+        { 
+            if (unit == null)
+            {
+                currentWarBand.Remove(unit);
+            }
+        }
     }
 }

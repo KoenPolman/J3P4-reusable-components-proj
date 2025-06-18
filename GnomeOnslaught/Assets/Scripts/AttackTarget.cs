@@ -2,22 +2,19 @@ using UnityEngine;
 
 public class AttackTarget : MonoBehaviour
 {
-    [SerializeField] float damageAmount = 3;
-    private CommandInterperter commandInterperter;
+    [SerializeField] float damageAmount = 1;
     private UnitMovement unitMovement;
-    private Transform target;
+    private GameObject target;
     private Health healthOfTarget;
     private CircleCollider2D circleCollider;
     private CircleCollider2D circleColliderOfTarget;
     private void Start()
     {
-        commandInterperter = GetComponent<CommandInterperter>();
+        healthOfTarget = target.gameObject.GetComponent<Health>();
+        circleColliderOfTarget = target.GetComponent<CircleCollider2D>();
+
         unitMovement = GetComponent<UnitMovement>();
-        CommandAdresser t = GameObject.FindFirstObjectByType<CommandAdresser>();
-        target = t.gameObject.transform;
-        healthOfTarget = t.GetComponentInParent<Health>();
         circleCollider = GetComponent<CircleCollider2D>();
-        circleColliderOfTarget = t.gameObject.GetComponent<CircleCollider2D>();
         SeekEnemy seekEnemy = gameObject.AddComponent<SeekEnemy>();
         seekEnemy.enabled = false;
 
@@ -36,8 +33,8 @@ public class AttackTarget : MonoBehaviour
         if (circleColliderOfTarget == null)
         {
             Debug.Log("target does not exist anymore");
-            commandInterperter.SetBehavior<Idle>();
             GetComponent<SeekEnemy>().enabled = true;
+            GetComponent<CommandInterperter>().SetBehavior<Idle>();
         }
         else
         {
@@ -50,9 +47,9 @@ public class AttackTarget : MonoBehaviour
             {
                 healthOfTarget.TakeDamage(damageAmount, gameObject.transform.position);
             }
-        }   
+        }
     }
-    public Transform Target
+    public GameObject Target
     {
         get => target;
         set => target = value;
