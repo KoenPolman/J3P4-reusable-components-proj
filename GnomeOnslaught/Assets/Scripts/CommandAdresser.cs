@@ -49,6 +49,10 @@ public class CommandAdresser : MonoBehaviour
     }
     private void CheckForDeaths()
     {
+        for (int i = 0; i <= currentWarBand.Count; i++)
+        {
+
+        }
         foreach(CommandInterperter unit in currentWarBand) 
         { 
             if (unit == null)
