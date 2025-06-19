@@ -23,7 +23,10 @@ public class CommandInterperter : MonoBehaviour
             Destroy(currentBehavior);
         }
 
-        currentBehavior = gameObject.AddComponent<T>();
+        if (GetComponent<T>() == null)
+        {
+            currentBehavior = gameObject.AddComponent<T>();
+        }
     }
     public void ClearBehavior()
     {
