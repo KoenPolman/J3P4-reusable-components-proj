@@ -49,16 +49,17 @@ public class CommandAdresser : MonoBehaviour
     }
     private void CheckForDeaths()
     {
-        for (int i = 0; i <= currentWarBand.Count; i++)
+     List<CommandInterperter> unitsToRemoveFromWarBand = new List<CommandInterperter>();
+        foreach (CommandInterperter unit in currentWarBand)
         {
-
-        }
-        foreach(CommandInterperter unit in currentWarBand) 
-        { 
             if (unit == null)
             {
-                currentWarBand.Remove(unit);
+                unitsToRemoveFromWarBand.Add(unit);
             }
+        }
+        foreach (CommandInterperter unitsToRemove in unitsToRemoveFromWarBand)
+        {
+            currentWarBand.Remove(unitsToRemove);
         }
     }
 }
