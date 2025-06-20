@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class CommandAdresser : MonoBehaviour
@@ -27,7 +25,7 @@ public class CommandAdresser : MonoBehaviour
     public void Rally()
     {
         CommandInterperter[] targets = FindObjectsByType<CommandInterperter>(FindObjectsSortMode.None); //doelwitten worden gevonden
-        //Debug.Log("qty CommandInterperter found : " + targets.Length); //
+        //Debug.Log("qty CommandInterperter found : " + targets.Length);
         for (int i = 0; i < targets.Length; i++)
         {
             float distance = Vector3.Distance(targets[i].transform.position, transform.position);
