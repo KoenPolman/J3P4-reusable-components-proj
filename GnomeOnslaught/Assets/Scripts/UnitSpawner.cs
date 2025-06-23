@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UniitSpawnPoint : MonoBehaviour
+public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject UnitToInstantiate;
-    [SerializeField] private float InstatiationFrequency = 2f;
+    [SerializeField] private float InstatiationFrequency = 2f; //interval of spawning units
     [SerializeField] private float SpawnRadius = 3f;
 
     private float timer;

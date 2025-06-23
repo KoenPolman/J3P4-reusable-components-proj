@@ -22,9 +22,8 @@ public class Health : MonoBehaviour
         Debug.Log("health = " + 0); 
         if (rb != null)
         {
-            rb.AddForce(-damageOrgin * 2 * 100);
+            rb.AddForce(-(damageOrgin * 2 * 10));
         }
         healthPoints -= damage;
-        
     }
 }
