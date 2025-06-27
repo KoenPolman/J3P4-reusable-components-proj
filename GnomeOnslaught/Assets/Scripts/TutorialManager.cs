@@ -4,9 +4,11 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private string[] tutorialText;
+    [SerializeField] private float timeBetweenTutorialSteps = 1;
     private TMP_Text field;
     private int currentStep = 0;
     private bool[] stepCompleted;
+    private float timeOfLastStepCompletion = 0; //in seconds
 
     void Start()
     {
@@ -17,6 +19,10 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
+        if (timeOfLastStepCompletion + timeBetweenTutorialSteps >= Time.fixedTime)
+        {
+            return;
+        }
         switch (currentStep)
         {
             case 0:
@@ -40,6 +46,9 @@ public class TutorialManager : MonoBehaviour
                     CompleteStep();
                 }
                 break;
+            case 3:
+                CompleteStep();
+                break;
         }
     }
 
@@ -55,6 +64,7 @@ public class TutorialManager : MonoBehaviour
         {
             field.text = "";
         }
+        timeOfLastStepCompletion = Time.fixedTime;
     }
 
     void ShowCurrentStep()

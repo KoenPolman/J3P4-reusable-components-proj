@@ -4,12 +4,12 @@ public class SeekEnemy : MonoBehaviour
 {
     [SerializeField] FactionTypes[] targetedFactions;
     private Alleigiance alleigiance;
-    private CommandInterperter commandInterperter;
+    private BehaviorManager commandInterperter;
 
     void Start()
     {
         alleigiance = gameObject.GetComponent<Alleigiance>();
-        commandInterperter = gameObject.GetComponent<CommandInterperter>();
+        commandInterperter = gameObject.GetComponent<BehaviorManager>();
     }
 
     void Update()

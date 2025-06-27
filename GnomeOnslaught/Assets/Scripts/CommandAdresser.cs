@@ -4,60 +4,62 @@ using UnityEngine;
 public class CommandAdresser : MonoBehaviour
 {
     [SerializeField] float commandRange = 5;
-    private List<CommandInterperter> currentWarBand = new List<CommandInterperter>();
+    private List<BehaviorManager> currentWarBand = new List<BehaviorManager>();
     private IControls controls;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        controls = new KeyboardControls(gameObject);    
+        controls = new KeyboardControls(gameObject);
+
+        Health.OnUnitDied += RemoveFromWarband;
     }
 
-    // Update is called once per frame
+    void OnDestroy()
+    {
+        Health.OnUnitDied -= RemoveFromWarband;
+    }
+
     void Update()
     {
-        CheckForDeaths();
         if (controls.ReturnPressed())
         {
-            //Debug.Log("rallying units");
             Rally();
         }
     }
+
     public void Rally()
     {
-        CommandInterperter[] targets = FindObjectsByType<CommandInterperter>(FindObjectsSortMode.None); //doelwitten worden gevonden
-        //Debug.Log("qty CommandInterperter found : " + targets.Length);
+        BehaviorManager[] targets = FindObjectsByType<BehaviorManager>(FindObjectsSortMode.None);
         for (int i = 0; i < targets.Length; i++)
         {
             float distance = Vector3.Distance(targets[i].transform.position, transform.position);
-            if (distance <= commandRange && !currentWarBand.Contains(targets[i]) && targets[i].GetComponent<Alleigiance>().Faction == FactionTypes.Player)
+            if (distance <= commandRange &&
+                !currentWarBand.Contains(targets[i]) &&
+                targets[i].GetComponent<Alleigiance>().Faction == FactionTypes.Player)
             {
                 currentWarBand.Add(targets[i]);
             }
         }
-        Debug.Log("Curren warband size : " + currentWarBand.Count);
-        foreach (CommandInterperter unit in currentWarBand)
+
+        Debug.Log("Current warband size: " + currentWarBand.Count);
+        foreach (BehaviorManager unit in currentWarBand)
         {
-            //Debug.Log("unitbehavior set");
             unit.SetBehavior<FollowTarget>();
         }
     }
+
     public void Attack()
     {
-
+        // attack logic
     }
-    private void CheckForDeaths()
+
+    private void RemoveFromWarband(GameObject gameObjectToRemove)
     {
-     List<CommandInterperter> unitsToRemoveFromWarBand = new List<CommandInterperter>();
-        foreach (CommandInterperter unit in currentWarBand)
+        var bm = gameObjectToRemove.GetComponent<BehaviorManager>();
+        if (bm != null && currentWarBand.Contains(bm))
         {
-            if (unit == null)
-            {
-                unitsToRemoveFromWarBand.Add(unit);
-            }
-        }
-        foreach (CommandInterperter unitsToRemove in unitsToRemoveFromWarBand)
-        {
-            currentWarBand.Remove(unitsToRemove);
+            currentWarBand.Remove(bm);
+            Debug.Log("Unit removed from warband.");
         }
     }
 }

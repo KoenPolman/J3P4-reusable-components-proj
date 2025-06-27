@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7864733423098742570, guid: 4c320c2205a393046b5e13769f3e5f66, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3016121372778855750}
+    - targetCorrespondingSourceObject: {fileID: 7864733423098742570, guid: 4c320c2205a393046b5e13769f3e5f66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6091303220569927011}
   m_SourcePrefab: {fileID: 100100000, guid: 4c320c2205a393046b5e13769f3e5f66, type: 3}
 --- !u!1 &9005563017364887317 stripped
 GameObject:
@@ -121,3 +124,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.1}
   m_Radius: 0.3
+--- !u!114 &6091303220569927011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005563017364887317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aed0f1ef18da7c498a50e3ab92a3efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

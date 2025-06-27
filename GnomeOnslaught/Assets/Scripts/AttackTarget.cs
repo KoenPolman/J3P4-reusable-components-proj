@@ -18,27 +18,27 @@ public class AttackTarget : MonoBehaviour
         SeekEnemy seekEnemy = gameObject.AddComponent<SeekEnemy>();
         seekEnemy.enabled = false;
 
-        if (circleCollider == null)
-        {
-            Debug.Log("unit collider is null");
-        }
+        //if (circleCollider == null)
+        //{
+        //    Debug.Log("unit collider is null");
+        //}
 
-        if (circleColliderOfTarget == null)
-        {
-            Debug.Log("target collider is null");
-        }
+        //if (circleColliderOfTarget == null)
+        //{
+        //    Debug.Log("target collider is null");
+        //}
     }
     void FixedUpdate()
     {
         if (circleColliderOfTarget == null)
         {
-            Debug.Log("target does not exist anymore");
+            //Debug.Log("target does not exist anymore");
             GetComponent<SeekEnemy>().enabled = true;
-            GetComponent<CommandInterperter>().SetBehavior<Idle>();
+            GetComponent<BehaviorManager>().SetBehavior<Idle>();
         }
         else
         {
-            Debug.Log("running attack behavior");
+            //Debug.Log("running attack behavior");
             Vector2 toTarget = target.transform.position - transform.position;
             float currentDistance = toTarget.magnitude; //calculate the direction to the target
             Vector2 direction = toTarget.normalized;

@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class CommandInterperter : MonoBehaviour
+public class BehaviorManager : MonoBehaviour
 {
-    //the naming here is not very accurate, a better name would be: Behavior manager
     private MonoBehaviour currentBehavior;
     private void Start()
     {
