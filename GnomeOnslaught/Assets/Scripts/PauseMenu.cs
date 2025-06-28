@@ -32,12 +32,12 @@ public class PauseMenu : MonoBehaviour
         rigidbody2Ds.AddRange(FindObjectsByType<Rigidbody2D>(FindObjectsSortMode.None));
         foreach (MonoBehaviour toPause in componentsToPause)//put all game objects on pause
         {
-            Debug.Log("a component is paused");
+            //Debug.Log("a component is paused");
             toPause.enabled = false;
         }
         foreach (Rigidbody2D toPause in rigidbody2Ds)
         {
-            Debug.Log("a rigidbody is paused");
+            //Debug.Log("a rigidbody is paused");
             toPause.bodyType = RigidbodyType2D.Static;
         }
         pauseMenuInstance = Instantiate(pauseMenuPrefab, gameObject.transform);//instantiate the pause menu prefab

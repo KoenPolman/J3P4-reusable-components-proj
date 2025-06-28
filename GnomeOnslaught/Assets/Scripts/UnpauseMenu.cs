@@ -16,7 +16,7 @@ public class UnpauseMenu : MonoBehaviour
     }
     public void UnPauseGame()//tied to button in the canvas of the level
     {
-        Debug.Log("unpause was pressed");
+        //Debug.Log("unpause was pressed");
         foreach (MonoBehaviour toUnPause in componentsToPause)//unpause all gameobjects
         {
             toUnPause.enabled = true;

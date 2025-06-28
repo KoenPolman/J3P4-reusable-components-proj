@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88a28061dd41c54cbf5a8a6e0dc8647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 0
+  faction: 1
 --- !u!58 &6478854163796107564
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35fae5db03ce8249a9fcd3f385620e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitToInstantiate: {fileID: 9005563017364887317, guid: 127f2ac4f0b8208488f590a92b5929f9, type: 3}
+  UnitToInstantiate: {fileID: 6694246925464320630, guid: cbf3ff04db3831543be7e8960bed2940, type: 3}
   InstatiationFrequency: 2
   SpawnRadius: 3
