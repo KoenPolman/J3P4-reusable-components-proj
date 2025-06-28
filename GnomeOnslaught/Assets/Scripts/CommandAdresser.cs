@@ -41,7 +41,7 @@ public class CommandAdresser : MonoBehaviour
             }
         }
 
-        Debug.Log("Current warband size: " + currentWarBand.Count);
+        //Debug.Log("Current warband size: " + currentWarBand.Count);
         foreach (BehaviorManager unit in currentWarBand)
         {
             unit.SetBehavior<FollowTarget>();
@@ -59,7 +59,7 @@ public class CommandAdresser : MonoBehaviour
         if (bm != null && currentWarBand.Contains(bm))
         {
             currentWarBand.Remove(bm);
-            Debug.Log("Unit removed from warband.");
+           // Debug.Log("Unit removed from warband.");
         }
     }
 }

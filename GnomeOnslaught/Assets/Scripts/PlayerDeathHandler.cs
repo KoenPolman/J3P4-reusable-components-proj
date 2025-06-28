@@ -6,6 +6,6 @@ public class PlayerDeathHandler : MonoBehaviour
     public void OnDeath()
     {
         GameObject canvas = FindAnyObjectByType<Canvas>().gameObject;
-        Instantiate(GameOverScreen, canvas.gameObject.transform);
+        Instantiate(GameOverScreen, canvas.transform);
     }
 }

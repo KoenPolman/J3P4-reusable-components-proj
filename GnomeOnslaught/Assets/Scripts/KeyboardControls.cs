@@ -8,6 +8,8 @@ public class KeyboardControls : IControls
     {
         player = _player;
     }
+    public KeyboardControls() { }
+    
     public Vector2 GetMovement()
     {
         //Debug.Log("check input");
@@ -66,5 +68,9 @@ public class KeyboardControls : IControls
             //Debug.Log("return was pressed");
         }
         return Input.GetKeyDown(KeyCode.Q);
+    }
+    public bool PausePressed()
+    {
+        return Input.GetKey(KeyCode.F1);
     }
 }
