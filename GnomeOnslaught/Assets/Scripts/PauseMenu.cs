@@ -28,8 +28,8 @@ public class PauseMenu : MonoBehaviour
     }
     private void PauseGame()
     {
-        componentsToPause.AddRange(FindObjectsOfType<UnitSpawner>());//find game objects, of type rigid body and unitspawner
-        rigidbody2Ds.AddRange(FindObjectsOfType<Rigidbody2D>());
+        componentsToPause.AddRange(FindObjectsByType<UnitSpawner>(FindObjectsSortMode.None));//find game objects, of type rigid body and unitspawner
+        rigidbody2Ds.AddRange(FindObjectsByType<Rigidbody2D>(FindObjectsSortMode.None));
         foreach (MonoBehaviour toPause in componentsToPause)//put all game objects on pause
         {
             Debug.Log("a component is paused");

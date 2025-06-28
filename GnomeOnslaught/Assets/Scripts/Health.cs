@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 damageOrigin)
     {
-        Debug.Log("health = " + healthPoints);
+        //Debug.Log("health = " + healthPoints);
         if (rb != null)
         {
             rb.AddForce(-(damageOrigin * 2 * 10));
@@ -24,11 +24,11 @@ public class Health : MonoBehaviour
 
         if (healthPoints <= 0)
         {
-            CheckForOnDeathHandler();
+            CheckForOnDeathHandlers();
             Destroy(gameObject);
         }
     }
-    private void CheckForOnDeathHandler()
+    private void CheckForOnDeathHandlers()
     {
         if (GetComponent<AlliedUnitDeathHandler>() != null)
         {
@@ -41,6 +41,10 @@ public class Health : MonoBehaviour
         if (GetComponent<PlayerDeathHandler>() != null)
         {
             GetComponent<PlayerDeathHandler>().OnDeath();
+        }
+        if (GetComponent<ExplosiveDeathHandler>() != null)
+        {
+            GetComponent<ExplosiveDeathHandler>().OnDeath();
         }
     }
 }
