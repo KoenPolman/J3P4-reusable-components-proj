@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4434064229356067247}
   - component: {fileID: 3189520705556394954}
   - component: {fileID: 2894860173168995062}
+  - component: {fileID: -7206228900022688901}
   m_Layer: 0
   m_Name: GrassCorner
   m_TagString: Untagged
@@ -96,3 +97,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253675596914069106}
   m_CullTransparentMesh: 1
+--- !u!114 &-7206228900022688901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253675596914069106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72973c760d9ca5447b24611d1231793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1

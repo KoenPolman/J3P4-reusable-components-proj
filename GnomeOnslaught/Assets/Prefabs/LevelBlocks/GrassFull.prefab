@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4263848531756237330}
   - component: {fileID: 3966081080975300349}
   - component: {fileID: -5359106008125157336}
+  - component: {fileID: 1472214441259799245}
   m_Layer: 0
   m_Name: GrassFull
   m_TagString: Untagged
@@ -100,3 +101,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1472214441259799245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762628457750962105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72973c760d9ca5447b24611d1231793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1

@@ -13,6 +13,12 @@ public class FollowTarget : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (target == null)
+        {
+            //Debug.Log("target does not exist anymore");
+            GetComponent<BehaviorManager>().SetBehavior<Idle>();
+            return;
+        }
         //Debug.Log("following target");
         Vector2 toTarget = target.transform.position - transform.position;
         float currentDistance = toTarget.magnitude;

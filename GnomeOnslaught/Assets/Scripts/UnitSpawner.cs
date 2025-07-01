@@ -9,7 +9,7 @@ public class UnitSpawner : MonoBehaviour
 
     private float timer;
 
-    private void Update()
+    private void FixedUpdate()
     {
         timer += Time.deltaTime;
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8243401763357653772}
   - component: {fileID: 8230454182458152081}
   - component: {fileID: -6727971840046761749}
+  - component: {fileID: -4336272495304882032}
   m_Layer: 0
   m_Name: DenseForestFull
   m_TagString: Untagged
@@ -143,3 +144,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4336272495304882032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159783135961269454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72973c760d9ca5447b24611d1231793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

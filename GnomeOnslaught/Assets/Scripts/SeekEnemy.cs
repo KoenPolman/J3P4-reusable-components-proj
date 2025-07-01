@@ -15,6 +15,10 @@ public class SeekEnemy : MonoBehaviour
     void Update()
     {
         //Debug.Log("update");
+        FindTargets(); //find a way to get this out of the update, this is terrible for performance
+    }
+    private void FindTargets()
+    {
         Alleigiance[] allUnits = FindObjectsByType<Alleigiance>(FindObjectsSortMode.None); //gets all the units with an alleigiance
         for (int i = 0; i < allUnits.Length; i++)
         {
